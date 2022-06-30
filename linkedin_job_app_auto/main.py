@@ -1,3 +1,12 @@
+#This project is meant to use the "Easy Apply" nature on Linkedin to automate the job application process.
+
+#But since I do not want to mess with the companies that are genuinely recruiting, instead of apply for bunch of jobs, I shall save the all the listed job instead.
+
+#In the section under "#path1 for actual app", I desmonstrated how would I apply for the jobs 
+#so when I'm ready to mass_apply, I can utilize the code shown in that specific section
+
+
+
 URL = "https://www.linkedin.com/jobs/search/?f_AL=true&geoId=102965250&keywords=python%20developer&location=Ann%20Arbor%2C%20Michigan%2C%20United%20States"
 
 from selenium import webdriver
