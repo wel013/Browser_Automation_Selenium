@@ -1,3 +1,7 @@
+#this project uses selenium to automate the cookie clicker game. The program runs for 5 mins total. 
+#It also checks for and purchases for the highest-priced yet affordable item in the store. 
+#Project idea from 100 days of python bootcamp from udemy, completed individually
+
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
