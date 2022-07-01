@@ -1,5 +1,7 @@
+#This programs performs the process of opening tinder.com, logging with FB, 
+# accept conditions and cookies, like/dislike people (based on your choice)
+
 url = "https://tinder.com/"
-URL = "https://tinder.com/app/recs"
 from selenium import webdriver
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -15,17 +17,19 @@ options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)
 s = Service('C:/Development/chromedriver.exe')
 driver = webdriver.Chrome(service=s, options=options)
-driver.get(URL)
+driver.get(url)
+#Signing in on the main page
 time.sleep(3)
 signin_btn = driver.find_element(by=By.XPATH, value='//*[@id="q-996647900"]/div/div[1]/div/main/div[1]/div/div/div/div/header/div/div[2]/div[2]/a/span')
 signin_btn.click()
-
 time.sleep(3)
 fb_log_in = driver.find_element(by=By.XPATH, value='//*[@id="q1569938320"]/div/div/div[1]/div/div/div[3]/span/div[2]/button')
 fb_log_in.click()
 
+
+#Signing in with FB on a pop up window
 FB_EMAIL = "wenqianli010524@gmail.com"
-FB_PASSWORD = "Iqoc1vot#"
+FB_PASSWORD = os.environ['FB_PASSWORD']
 time.sleep(2)
 
 driver.window_handles
@@ -39,11 +43,12 @@ driver.switch_to.window(fb_login_window)
 password = driver.find_element(by=By.ID, value="pass")
 password.send_keys(FB_PASSWORD)
 
-#do not need to use exception because I made sure the btns do exist
+
 fb_log = driver.find_element(by=By.CSS_SELECTOR, value='label input')
 fb_log.click()
 time.sleep(3)
 
+#switch back to the main page to perform actions: allow conditions/cookies
 driver.switch_to.window(base_window)
 print(driver.title)
 time.sleep(5)
@@ -57,6 +62,7 @@ time.sleep(5)
 
 accept = driver.find_element(by=By.XPATH, value='//*[@id="q-996647900"]/div/div[2]/div/div/div[1]/div[1]/button')
 accept.click()
+
 # #just disliking everyone
 # dislike = driver.find_element(by=By.XPATH, value='//*[@id="q-996647900"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[4]/div/div[2]/button')
 # for n in range(100):
