@@ -7,4 +7,4 @@ Project 1: Cookie🍪 Clicker Automator
 
 Project 2: Linkedin Automated Job Applicator👩‍💻
 
-Project 3: 
+Project 3: Tinder Auto Like/Dislike Bot
